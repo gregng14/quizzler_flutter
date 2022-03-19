@@ -33,7 +33,7 @@ class QuizBrain {
   ];
 
   void nextQuestion() {
-    if (_questionNumber < _questionBank.length - 1) {
+    if (!isFinsihed()) {
       _questionNumber++;
     }
   }
@@ -44,5 +44,14 @@ class QuizBrain {
 
   bool getAnswer() {
     return _questionBank[_questionNumber].answer;
+  }
+
+  bool isFinsihed() {
+    print(_questionNumber >= _questionBank.length -1);
+    return _questionNumber >= _questionBank.length -1;
+  }
+
+  void reset() {
+    _questionNumber = 0;
   }
 }
